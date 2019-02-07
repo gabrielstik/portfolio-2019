@@ -1,0 +1,30 @@
+{
+  "header": {
+    "nav": [
+      {
+        "label": "Projects",
+        "link": "/projects"
+      },
+      {
+        "label": "Lab",
+        "link": "/lab"
+      },
+      {
+        "label": "Email",
+        "link": "mailto: gabriel.stik@gmail.com"
+      },
+      {
+        "label": "Twitter",
+        "link": "//twitter.com/gabriel_stik"
+      },
+      {
+        "label": "Github",
+        "link": "//github.com/user/gabrielstik"
+      }
+    ]
+  },
+  "home": {
+    "title": "Gabriel Stik",
+    "text": "I am Gabriel Stik, french student in 3rd grade at HETIC where I learnt the basics of the internet. I’m looking for an internship anywhere in the world. Feel free to contact me."
+  }
+}

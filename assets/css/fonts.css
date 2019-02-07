@@ -1,11 +1,11 @@
-/* @font-face {
-  font-family: 'font';
-  src: url('../fonts/font');
+@font-face {
+  font-family: 'Maison Neue';
+  src: url('../fonts/MaisonNeueBook.otf');
   font-weight: normal;
 }
 
 @font-face {
-  font-family: 'font';
-  src: url('../fonts/font');
+  font-family: 'Maison Neue';
+  src: url('../fonts/MaisonNeueBold.otf');
   font-weight: bold;
-} */
+}
