@@ -18,4 +18,8 @@ export default {
 </script>
 
 <style lang="scss">
+html {
+  min-height: 100vh;
+  background-color: var(--background);
+}
 </style>

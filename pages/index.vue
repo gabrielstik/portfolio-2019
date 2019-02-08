@@ -26,8 +26,6 @@ export default {
     if (this.$store.state.fromRoute == null) this.mountAnimation(1.5)
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
-
-    console.log(this.api)
   },
   beforeRouteLeave: function(to, from, next) {
     next()
@@ -45,7 +43,6 @@ export default {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: var(--background);
 }
 
 .title {
