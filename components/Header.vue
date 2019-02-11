@@ -36,32 +36,24 @@ export default {
 <style lang="scss" scoped>
 #header {
   position: fixed;
-  width: 100vh;
+  z-index: 99999;
   height: 100px;
-  border-bottom: solid 1px var(--lightGrey);
-  transform-origin: top left;
-  transform: translateY(100vh) rotate(-90deg);
-}
-
-nav {
-  display: flex;
-  align-items: center;
+  padding: 0 120px;
 }
 
 nav ul {
-  width: 60vh;
-  margin: 30px auto;
+  margin: 20px auto;
   display: flex;
-  justify-content: space-between;
 
   .link {
-    transform: rotate(-90deg);
+    margin-right: 50px;
     font-family: 'Graphik', sans-serif;
     font-size: 16px;
     color: var(--main);
     letter-spacing: 0;
     text-align: center;
     line-height: 33px;
+    opacity: .5;
   }
 }
 </style>

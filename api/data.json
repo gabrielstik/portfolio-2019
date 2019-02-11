@@ -31,30 +31,37 @@
     "title": "Gabriel Stik",
     "text": "I am Gabriel Stik, french student in 3rd grade at HETIC where I learnt the basics of the internet. I’m looking for an internship anywhere in the world. Feel free to contact me."
   },
-  "projects": [
-    {
-      "slug": "la-montgolfiere",
-      "name": "La Montgolfière",
-      "role": "Front end developer",
-      "for": "Purée Maison",
-      "excerpt": "The first social club in Paris, La Montgolfière opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
-      "thumbnail": {
-        "url": "thumbnails/la-montgolfiere.jpg",
-        "alt": "La Montgolfière"
-      },
-      "cta": "View project"
-    },
-    {
+  "projects": {
+    "ascora": {
       "slug": "ascora",
       "name": "Ascora",
-      "role": "Front end developer",
-      "for": "Purée Maison",
       "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
       "thumbnail": {
         "url": "thumbnails/ascora.jpg",
         "alt": "Ascora"
       },
-      "cta": "view project"
+      "cta": "see the project",
+      "link": {
+        "url": "//ascora.com",
+        "label": "View website"
+      },
+      "infos": {
+        "role": "Front end developer",
+        "client": "Purée Maison",
+        "date": "2018",
+        "type": "Website",
+        "techs": "Wordpress and native JS Router"
+      }
+    },
+    "la-montgolfiere": {
+      "slug": "la-montgolfiere",
+      "name": "La Montgolfière",
+      "excerpt": "The first social club in Paris, La Montgolfière opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
+      "thumbnail": {
+        "url": "thumbnails/la-montgolfiere.jpg",
+        "alt": "La Montgolfière"
+      },
+      "cta": "see the project"
     }
-  ]
+  }
 }
