@@ -8,22 +8,6 @@
       {
         "label": "Projects",
         "link": "/projects"
-      },
-      {
-        "label": "Lab",
-        "link": "/lab"
-      },
-      {
-        "label": "Email",
-        "link": "mailto: gabriel.stik@gmail.com"
-      },
-      {
-        "label": "Twitter",
-        "link": "//twitter.com/gabriel_stik"
-      },
-      {
-        "label": "Github",
-        "link": "//github.com/user/gabrielstik"
       }
     ]
   },
@@ -51,7 +35,33 @@
         "date": "2018",
         "type": "Website",
         "techs": "Wordpress and native JS Router"
-      }
+      },
+      "content": [
+        {
+          "type": "full-width-text",
+          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "ascora/ascora-1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-image",
+          "image": {
+            "url": "ascora/ascora-1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-title",
+          "title": "Bullshit animations are the key of awwwards."
+        }
+      ]
     },
     "la-montgolfiere": {
       "slug": "la-montgolfiere",

@@ -30,6 +30,24 @@
       </div>
     </div>
   </header>
+  <div class="project__content" v-for="layout in data.content" :key="layout.id">
+    <FullWidthText
+      v-if="layout.type == 'full-width-text'"
+      :data="layout"
+    />
+    <SimpleImage
+      v-if="layout.type == 'simple-image'"
+      :data="layout"
+    />
+    <FullWidthImage
+      v-if="layout.type == 'full-width-image'"
+      :data="layout"
+    />
+    <FullWidthTitle
+      v-if="layout.type == 'full-width-title'"
+      :data="layout"
+    />
+  </div>
 </div>
 </template>
 
@@ -37,10 +55,21 @@
 import api from '~/api/data.json'
 import { TweenMax } from 'gsap'
 
+import FullWidthText from '~/components/project/FullWidthText'
+import FullWidthImage from '~/components/project/FullWidthImage'
+import FullWidthTitle from '~/components/project/FullWidthTitle'
+import SimpleImage from '~/components/project/SimpleImage'
+
 export default {
   name: 'Projects',
   head: {
     title: `Gabriel Stik — Portfolio`
+  },
+  components: {
+    FullWidthText,
+    FullWidthImage,
+    FullWidthTitle,
+    SimpleImage
   },
   data() {
     return {
@@ -78,7 +107,6 @@ export default {
   &__header {
     height: 100vh;
     min-height: 600px;
-    margin-bottom: 140px;
     display: flex;
     flex-direction: column;
   }
@@ -94,7 +122,7 @@ export default {
 
     &__infos {
       height: 180px;
-      padding: 0 240px;
+      padding: 0 140px;
       background-color: var(--main);
       flex-shrink: 0;
       display: flex;
@@ -152,7 +180,7 @@ export default {
       letter-spacing: 0.89px;
       line-height: 46px;
       text-align: right;
-      margin-right: 16px;
+      margin-right: 40px;
 
       span {
         display: inline-block;
