@@ -3,30 +3,30 @@
   <header class="project__header">
     <div class="header__title-container container">
       <div class="header__date-type">
-        <div class="header__date">{{data.infos.date}}</div>
-        <div class="header__type">{{data.infos.type}}</div>
+        <div class="header__date" ref="date">{{data.infos.date}}</div>
+        <div class="header__type" ref="type">{{data.infos.type}}</div>
       </div>
-      <h1 class="header__title">{{data.name}}</h1>
-      <div class="header__link"><a :href="data.link.url" :title="data.name" target="_blank">
+      <div class="oh"><h1 class="header__title" ref="name">{{data.name}}</h1></div>
+      <div class="header__link" ref="cta"><a :href="data.link.url" :title="data.name" target="_blank">
         <span>{{data.link.label}}</span></a>
       </div>
     </div>
     <div class="header__infos">
       <div v-if="data.infos.client" class="header__infos__info">
-        <div class="header__infos__label">Client</div>
-        <div class="header__infos__data">{{data.infos.client}}</div>
+        <div class="header__infos__label" ref="label1">Client</div>
+        <div class="header__infos__data" ref="data1">{{data.infos.client}}</div>
       </div>
       <div v-if="data.infos.role" class="header__infos__info">
-        <div class="header__infos__label">Role</div>
-        <div class="header__infos__data">{{data.infos.role}}</div>
+        <div class="header__infos__label" ref="label2">Role</div>
+        <div class="header__infos__data" ref="data2">{{data.infos.role}}</div>
       </div>
       <div v-if="data.infos.date" class="header__infos__info">
-        <div class="header__infos__label">Year</div>
-        <div class="header__infos__data">{{data.infos.date}}</div>
+        <div class="header__infos__label" ref="label3">Year</div>
+        <div class="header__infos__data" ref="data3">{{data.infos.date}}</div>
       </div>
       <div v-if="data.infos.techs" class="header__infos__info">
-        <div class="header__infos__label">Tech</div>
-        <div class="header__infos__data">{{data.infos.techs}}</div>
+        <div class="header__infos__label" ref="label4">Tech</div>
+        <div class="header__infos__data" ref="data4">{{data.infos.techs}}</div>
       </div>
     </div>
   </header>
@@ -91,6 +91,17 @@ export default {
   },
   methods: {
     mountAnimation(delay) {
+      const labels = [this.$refs.label1, this.$refs.label2, this.$refs.label3, this.$refs.label4]
+      const datas = [this.$refs.data1, this.$refs.data2, this.$refs.data3, this.$refs.data4]
+
+      const timeline = new TimelineMax()
+      timeline
+        .from(this.$refs.name, 1, { y: '100%', ease: Power1.easeOut }, delay + 0)
+        .from(this.$refs.date, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, delay + .2)
+        .from(this.$refs.type, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, delay + .3)
+        .staggerFrom(labels, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, .1, delay + .5)
+        .staggerFrom(datas, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, .1, delay + .55)
+        .from(this.$refs.cta, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, delay + 1.2)
     }
   }
 }

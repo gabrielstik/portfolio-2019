@@ -22,4 +22,8 @@ html {
   min-height: 100vh;
   background-color: var(--background);
 }
+
+.oh {
+  overflow: hidden;
+}
 </style>
