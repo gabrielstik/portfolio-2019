@@ -25,9 +25,6 @@ export default {
   created() {
     this.data = api.header
   },
-  mounted() {
-    console.log(this.data)
-  },
   methods: {
   }
 }

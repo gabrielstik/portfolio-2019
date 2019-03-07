@@ -1,28 +1,30 @@
 <template>
 <div id="projects" class="projects" ref="main">
-  <ul class="projects-list" ref="list">
-    <li v-for="(project, key) in data" class="project" :key="project.id" ref="project">
-      <a :href="`/project/${project.slug}`" v-on:click="e => handleProjectClick(e, getPositionInArray(key), project.slug)" :title="project.cta">
-        <div class="container">
-          <h2 class="name" ref="name">{{project.name}}</h2>
-          <div class="thumbnail">
+  <div class="project" ref="project">
+    <div class="container">
+      <div class="names" ref="names">
+        <h2 v-for="(project, index) of data" :key="project.id" class="name" ref="name">
+          <a :href="`/project/${project.slug}`" v-on:click="e => handleProjectClick(e, getPositionInArray(index), project.slug)">{{project.name}}</a>
+        </h2>
+      </div>
+      <div class="thumbnails" ref="thumbnailsContainer">
+        <div v-for="(project, index) of data" :key="project.id" class="thumbnail" ref="thumbnails">
+          <a :href="`/project/${project.slug}`" v-on:click="e => handleProjectClick(e, getPositionInArray(index), project.slug)">
             <img :src="`/images/${project.thumbnail.url}`" :alt="project.thumbnail.alt" ref="thumbnail">
             <div class="background" ref="background"></div>
-          </div>
-          <div class="infos">
-            <div class="number-of" ref="numberOf">
-              <div v-if="getPositionInArray(key).toString().length < 2" class="number">{{`0${getPositionInArray(key)}`}}</div>
-              <div v-else class="number">{{getPositionInArray(key)}}</div>
-              <div class="line"></div>
-              <div v-if="projectLength.toString().length < 2" class="of">{{`0${projectLength}`}}</div>
-              <div v-else class="of">{{projectLength}}</div>
-            </div>
-            <div class="see" ref="see">{{project.cta}}</div>
-          </div>
+          </a>
         </div>
-      </a>
-    </li>
-  </ul>
+      </div>
+      <div class="infos">
+        <div class="number-of" ref="numberOf">
+          <div class="number">{{`0${currentID+1}`}}</div>
+          <div class="line"></div>
+          <div class="of">{{`0${projectLength}`}}</div>
+        </div>
+        <div class="see" ref="see">{{current.cta}}</div>
+      </div>
+    </div>
+  </div>
 </div>
 </template>
 
@@ -38,25 +40,27 @@ export default {
   data() {
     return {
       data: {},
-      rotationOffsets: [],
-      verticalOffsets: [],
-      rotateRatio: 40,
-      currentScroll: 0,
-      currentRotation: 0,
-      currentVertical: 0,
-      isScrollLocked: false
+      current: {},
+      currentID: 0,
+      scroll: 0,
+      isScrolling: false,
+      ratio: 1.4
     }
   },
   created: function() {
     this.data = api.projects
+    this.keys = Object.keys(api.projects)
+    this.currentID = 0
     this.projectLength = Object.keys(this.data).length
+    this.current = api.projects[this.keys[this.currentID]]
   },
   mounted: function() {
+    this.ratio = window.innerHeight / window.innerWidth
     if (this.$store.state.fromRoute == null) this.mountAnimation(1.5)
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
 
-    this.initProjectRotate()
+    this.initThumbnailsOffset()
 
     document.body.style.overflow = 'hidden'
     window.addEventListener('mousewheel', this.handleScroll)
@@ -73,53 +77,48 @@ export default {
       const timeline = new TimelineMax()
       timeline
         .from(this.$refs.thumbnail[0], .5, { y: '80px', opacity: 0, ease: Power1.easeOut }, delay + 0)
-        .from(this.$refs.name[0], .5, { y: '120px', opacity: 0, ease: Power1.easeOut }, delay + .4)
-        .from(this.$refs.numberOf[0], .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .45)
-        .from(this.$refs.see[0], .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .5)
-        .from(this.$refs.background[0], 1, { opacity: 0, scale: .8, ease: Power1.easeOut }, delay + .4)
+        .from(this.$refs.name[0], .5, { y: '120px', opacity: 0, ease: Power1.easeOut }, delay + .05)
+        // .from(this.$refs.numberOf, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .45)
+        // .from(this.$refs.see, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .5)
+        .from(this.$refs.background[0], 1, { opacity: 0, scale: .8, ease: Power1.easeOut }, delay + .2)
     },
-    initProjectRotate() {
-      for (let i = 0; i < this.$refs.project.length; i++) {
-        this.rotationOffsets[i] = window.innerWidth / this.rotateRatio * i
-        this.$refs.project[i].style.transform = `rotate(${this.rotationOffsets[i]}deg)`
+    initThumbnailsOffset() {
+      this.$refs.thumbnailsContainer.style.transform = 'translateX(0px)'
+      const l = this.$refs.name.length
+      for (let i = 0; i < l; i++) {
+        console.log(`translateX(${-i*100}px)`)
+        this.$refs.name[i].style.transform = `translateX(${i*40}vw)`
       }
     },
     handleScroll(e) {
-      if (e.speedX == 0 && e.speedY == 0) e.preventDefault()
-      else {
-        if (!this.isScrollLocked) {
-          this.currentScroll -= e.deltaY
-          if (this.currentScroll >= 0) this.currentScroll = 0
-          if (this.currentScroll <= -this.$refs.list.offsetWidth) this.currentScroll = -this.$refs.list.offsetWidth
-
-          this.$refs.list.style.transform = `translateX(${this.currentScroll}px)`
-
-          for (let i = 0; i < this.$refs.project.length; i++) {
-            this.currentRotation = -this.currentScroll / window.innerWidth * this.rotationOffsets[1]
-            this.$refs.project[i].style.transform = `rotate(${this.rotationOffsets[i] - this.currentRotation}deg)`
-          }
-        }
+      if (e.deltaX == 0 && e.deltaY == 0) e.preventDefault()
+      
+      const skew = (max) => {
+        if (e.deltaY > max) return -max
+        else if (e.deltaY < -max) return max
+        else return -e.deltaY
       }
+
+      this.scroll -= e.deltaY
+      TweenMax.to(this.$refs.names, .05, { x: `${this.scroll*1.4}px`, skewX: `${skew(20)}deg` })
+      this.$refs.thumbnailsContainer.style.transform = `translateX(${this.scroll}px)`
+      if (this.scroll >= 0) this.scroll = 0
+      if (this.scroll <= -this.$refs.names.offsetWidth) this.scroll = -this.$refs.names.offsetWidth
     },
-    getPositionInArray(index) {
-      const keys = Object.keys(this.data)
-      let i = 0
-      for (const key of keys) { i++
-        if (key == index) return i
-      }
+    updateProject() {
+      this.isScrolling = true
+      setTimeout(() => this.isScrolling = false, 2000)
     },
     handleProjectClick(e, i, slug) {
       e.preventDefault()
-      i--
-
-      this.isScrollLocked = true
 
       const rect = this.$refs.background[i].getBoundingClientRect()
-      console.log(rect)
+      console.log(rect.bottom)
+      this.$refs.background[i].style.transform = 'none'
       this.$refs.background[i].style.position = 'fixed'
       this.$refs.background[i].style.top = 'auto'
-      this.$refs.background[i].style.bottom = `${window.innerHeight - (rect.top + rect.height)}px`
-      this.$refs.background[i].style.left = `${rect.left}px`
+      this.$refs.background[i].style.bottom = `${window.innerHeight - (rect.top + rect.height) - (rect.bottom - rect.height) + 30}px`
+      this.$refs.background[i].style.left = `${30 + i * window.innerWidth}px`
       this.$refs.background[i].style.width = `${rect.width}px`
       this.$refs.background[i].style.height = `${rect.height}px`
 
@@ -127,25 +126,34 @@ export default {
       timeline
         .to(this.$refs.name[i], .5, { y: '120px', opacity: 0, ease: Power1.easeIn }, 0)
         .to(this.$refs.thumbnail[i], .5, { y: '80px', opacity: 0, ease: Power1.easeIn }, 0)
-        .to(this.$refs.numberOf[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
-        .to(this.$refs.see[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
-        .to(this.$refs.see[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
-        .to(this.$refs.background[i], 1, { bottom: '0px', ease: Power1.easeInOut }, 0)
-        .to(this.$refs.background[i], .8, { left: '0px', right: '0px', width: '100%', height: '180px',  ease: Power1.easeInOut }, .7)
-    }
+        // .to(this.$refs.numberOf[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
+        // .to(this.$refs.see[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
+        // .to(this.$refs.see[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
+        .to(this.$refs.background[i], 1, { bottom: `-${rect.bottom - rect.height - 30}px`, ease: Power1.easeInOut }, 0)
+        .to(this.$refs.background[i], .8, { left: `${-rect.left + 30 + i * window.innerWidth}px`, width: '100vw', height: '180px',  ease: Power1.easeInOut }, .7)
+    },
+    getPositionInArray(index) {
+      const keys = Object.keys(this.data)
+      let i = 0
+      for (const key of keys) { i++
+        if (key == index) return i-1
+      }
+    },
   }
 }
 </script>
 
 <style lang="scss" scoped>
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
 #projects {
   height: 100vh;
   width: 100%;
   /* overflow: hidden; */
-}
-
-.projects-list {
-  display: flex;
 }
 
 .project {
@@ -167,22 +175,34 @@ export default {
   position: relative;
 }
 
+.names {
+  position: absolute;
+  top: -80px;
+  right: 0;
+  z-index: 1;
+  width: 100vw;
+  display: flex;
+}
+
 .name {
   width: 100%;
   font-family: 'PTSerif', serif;
   font-size: 120px;
   text-align: right;
   color: var(--main);
-  position: absolute;
-  top: -80px;
-  right: 0;
-  z-index: 1;
-  transform: translateZ(0px);
+  flex-shrink: 0;
+}
+
+.thumbnails {
+  height: 425px;
+  /* position: relative; */
+  display: flex;
 }
 
 .thumbnail {
   width: 50vw;
   height: 425px;
+  margin-right: 50vw;
   position: relative;
   flex-shrink: 0;
 
@@ -204,6 +224,7 @@ export default {
 }
 
 .infos {
+  background-color: red;
   height: calc(425px - 64px);
   margin-left: auto;
   padding-top: 64px;

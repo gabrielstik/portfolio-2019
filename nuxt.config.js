@@ -72,6 +72,7 @@ module.exports = {
   plugins: [
     { src: '~/plugins/polyfill/intersection-observer.js', ssr: false },
     { src: '~/plugins/SplitText.js', ssr: false },
+    { src: '~/plugins/lethargy.min.js', ssr: false },
     { src: '~/plugins/gsap/plugins/ScrollToPlugin.js', ssr: false },
     { src: '~/plugins/vue-observe-visibility.js' },
     { src: '~/plugins/vue-lazyload.js' },
