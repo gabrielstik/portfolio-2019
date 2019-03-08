@@ -2,15 +2,11 @@
   "header": {
     "nav": [
       {
-        "label": "Home",
+        "label": "Gabriel Stik",
         "link": "/"
       },
       {
-        "label": "Projects",
-        "link": "/projects"
-      },
-      {
-        "label": "About",
+        "label": "About me.",
         "link": "/about"
       }
     ]
@@ -20,9 +16,9 @@
     "text": "I am Gabriel Stik, french student in 3rd grade at HETIC where I learnt the basics of the internet. I’m looking for an internship anywhere in the world. Feel free to contact me."
   },
   "projects": {
-    "ascora": {
-      "slug": "ascora",
-      "name": "Ascora",
+    "maudrochel": {
+      "slug": "maudrochel",
+      "name": "Maud's portfolio",
       "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
       "thumbnail": {
         "url": "thumbnails/ascora.jpg",
@@ -67,10 +63,10 @@
         }
       ]
     },
-    "maudrochel": {
-      "slug": "maudrochel",
-      "name": "Maud's portfolio",
-      "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
+    "ascora": {
+      "slug": "ascora",
+      "name": "Ascora",
+      "excerpt": "Purée Maison<br>Wordpress and native Javascript.",
       "thumbnail": {
         "url": "thumbnails/ascora.jpg",
         "alt": "Ascora"
@@ -85,7 +81,7 @@
         "client": "Purée Maison",
         "date": "2018",
         "type": "Website",
-        "techs": "Wordpress and native JS Router"
+        "techs": "Wordpress and vanilla Javascript"
       },
       "content": [
         {

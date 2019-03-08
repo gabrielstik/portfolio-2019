@@ -87,7 +87,13 @@ export default {
     this.$store.commit('updateRoute', this.$route.path)
   },
   beforeRouteLeave: function(to, from, next) {
-    next()
+    if (to.name == 'about') {
+      const $orange = document.createElement('div')
+      $orange.classList.add('tr-orange-entering')
+      this.$refs.main.appendChild($orange)
+      TweenMax.to($orange, 1, { y: '-100vw', ease: Power1.easeInOut, onComplete: next });
+    }
+    else TweenMax.to(this.$refs.container, .2, { opacity: 0, onComplete: next })
   },
   methods: {
     mountAnimation(delay) {
