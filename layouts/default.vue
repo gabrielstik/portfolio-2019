@@ -50,6 +50,7 @@ html {
 }
 
 .loader {
+  display: none;
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -68,6 +69,7 @@ html {
   height: 8px;
   border-radius: 50%;
   transform: translateY(calc(50vh - 50%)) translateX(calc(50vw - 50%));
+  pointer-events: none;
 }
 
 .tr-orange-entering {

@@ -56,13 +56,8 @@ export default {
     window.addEventListener('mousewheel', this.handleScroll)
   },
   beforeRouteLeave: function(to, from, next) {
-    if (to.name == 'about') {
-      const $orange = document.createElement('div')
-      $orange.classList.add('tr-orange-entering')
-      this.$refs.main.appendChild($orange)
-      TweenMax.to($orange, 1, { y: '-100vw', ease: Power1.easeInOut, onComplete: next });
-    }
-    else TweenMax.to(this.$refs.container, .2, { opacity: 0, onComplete: next })
+    if (to.name == 'about') TweenMax.to(this.$refs.main, .2, { opacity: 0, scale: .95, onComplete: next })
+    else next()
   },
   beforeDestroy() {
     document.body.style.overflow = 'auto'
@@ -98,7 +93,7 @@ export default {
       TweenMax.to(this.$refs.names, .05, { x: `${this.scroll*1.4}px`, skewX: `${skew(20)}deg` })
       this.$refs.thumbnailsContainer.style.transform = `translateX(${this.scroll}px)`
       if (this.scroll >= 0) this.scroll = 0
-      if (this.scroll <= -this.$refs.names.offsetWidth) this.scroll = -this.$refs.names.offsetWidth
+      if (this.scroll <= -this.$refs.thumbnailsContainer.offsetWidth + this.$refs.main.offsetWidth) this.scroll = -this.$refs.thumbnailsContainer.offsetWidth + this.$refs.main.offsetWidth
     },
     updateProject() {
       this.isScrolling = true

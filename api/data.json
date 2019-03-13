@@ -16,12 +16,12 @@
     "text": "I am Gabriel Stik, french student in 3rd grade at HETIC where I learnt the basics of the internet. I’m looking for an internship anywhere in the world. Feel free to contact me."
   },
   "projects": {
-    "maudrochel": {
-      "slug": "maudrochel",
-      "name": "Maud's portfolio",
+    "streetco": {
+      "slug": "streetco",
+      "name": "Street Co.",
       "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
       "thumbnail": {
-        "url": "thumbnails/ascora.jpg",
+        "url": "thumbnails/streetco.jpg",
         "alt": "Ascora"
       },
       "cta": "see the project",
@@ -35,6 +35,100 @@
         "date": "2018",
         "type": "Website",
         "techs": "Wordpress and native JS Router"
+      },
+      "content": [
+        {
+          "type": "full-width-text",
+          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "ascora/ascora-1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-image",
+          "image": {
+            "url": "ascora/ascora-1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-title",
+          "title": "Bullshit animations are the key of awwwards."
+        }
+      ]
+    },
+    "maudrochel": {
+      "slug": "maudrochel",
+      "name": "Maud's folio",
+      "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
+      "thumbnail": {
+        "url": "thumbnails/maudrochel.jpg",
+        "alt": "Ascora"
+      },
+      "cta": "see the project",
+      "link": {
+        "url": "//ascora.com",
+        "label": "View website"
+      },
+      "infos": {
+        "role": "Front end developer",
+        "client": "Purée Maison",
+        "date": "2018",
+        "type": "Website",
+        "techs": "Wordpress and native JS Router"
+      },
+      "content": [
+        {
+          "type": "full-width-text",
+          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "ascora/ascora-1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-image",
+          "image": {
+            "url": "ascora/ascora-1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-title",
+          "title": "Bullshit animations are the key of awwwards."
+        }
+      ]
+    },
+    "lamontgolfiere": {
+      "slug": "lamontgolfiere",
+      "name": "La Montgolfière",
+      "excerpt": "Purée Maison<br>Wordpress and native Javascript.",
+      "thumbnail": {
+        "url": "thumbnails/la-montgolfiere.jpg",
+        "alt": "Ascora"
+      },
+      "cta": "see the project",
+      "link": {
+        "url": "//ascora.com",
+        "label": "View website"
+      },
+      "infos": {
+        "role": "Front end developer",
+        "client": "Purée Maison",
+        "date": "2018",
+        "type": "Website",
+        "techs": "Wordpress and vanilla Javascript"
       },
       "content": [
         {
@@ -110,5 +204,53 @@
         }
       ]
     }
+  },
+  "about": {
+    "chapters": [
+      {
+        "title": "Hello",
+        "text": "For 3 years I have been studying at HETIC digital know-how, both creation and development, as well as project management.<br>Today, I am a frontend developer.<br>I am also a freelance developer and I had the chance to work for the Parisian agency Purée Maison or Startupflow."
+      },
+      {
+        "title": "Experiences",
+        "experiences": [
+          {
+            "date": "Present",
+            "name": "Freelance developer",
+            "role": "",
+            "place": "Worldwide"
+          },
+          {
+            "date": "July to September 2018",
+            "name": "Intern at Purée Maison",
+            "role": "Frontend developer",
+            "place": "in Paris, France"
+          }
+        ]
+      },
+      {
+        "title": "Skills",
+        "skills": [
+          {
+            "type": "Main",
+            "skills": [
+              "Advanced Vanilla JS",
+              "React & Vue",
+              "PHP & Wordpress",
+              "Node Stacks",
+              "Three.js"
+            ]
+          },
+          {
+            "type": "Background",
+            "skills": [
+              "UI & UX design",
+              "Product design",
+              "Project leading"
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

@@ -1,14 +1,14 @@
 <template>
 <div id="project" class="project" ref="main">
   <header class="project__header">
-    <div class="header__title-container container">
+    <div class="header__title-container">
       <div class="header__date-type">
-        <div class="header__date" ref="date">{{data.infos.date}}</div>
-        <div class="header__type" ref="type">{{data.infos.type}}</div>
+        <div class="container"><div class="header__date" ref="date">{{data.infos.date}}</div></div>
+        <div class="container"><div class="header__type" ref="type">{{data.infos.type}}</div></div>
       </div>
-      <div class="oh"><h1 class="header__title" ref="name">{{data.name}}</h1></div>
-      <div class="header__link" ref="cta"><a :href="data.link.url" :title="data.name" target="_blank">
-        <span>{{data.link.label}}</span></a>
+      <div class="header__title__overflow"><h1 class="header__title" ref="name">{{data.name}}</h1></div>
+      <div class="container"><div class="header__link" ref="cta"><a :href="data.link.url" :title="data.name" target="_blank">
+        <span>{{data.link.label}}</span></a></div>
       </div>
     </div>
     <div class="header__infos">
@@ -74,6 +74,7 @@ export default {
   data() {
     return {
       data: {},
+      scroll: 0,
     }
   },
   created: function() {
@@ -85,6 +86,8 @@ export default {
     if (this.$store.state.fromRoute == null) this.mountAnimation(1.5)
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
+
+    window.addEventListener('mousewheel', this.handleScroll)
   },
   beforeRouteLeave: function(to, from, next) {
     if (to.name == 'about') {
@@ -102,12 +105,18 @@ export default {
 
       const timeline = new TimelineMax()
       timeline
-        .from(this.$refs.name, 1, { y: '100%', ease: Power1.easeOut }, delay + 0)
+        .from(this.$refs.name, 1, { y: '150%', ease: Power1.easeOut }, delay + 0)
         .from(this.$refs.date, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, delay + .2)
         .from(this.$refs.type, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, delay + .3)
         .staggerFrom(labels, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, .1, delay + .5)
         .staggerFrom(datas, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, .1, delay + .55)
         .from(this.$refs.cta, .4, { y: '30px', opacity: 0, ease: Power1.easeOut }, delay + 1.2)
+    },
+    handleScroll(e) {
+      if (this.$refs.name.offsetWidth >= window.innerWidth * .7)
+      this.scroll += e.deltaY
+      if (this.scroll <= 0) this.scroll = 0
+      this.$refs.name.style.transform = `translateX(${this.scroll * (window.innerWidth / 500)}px)`
     }
   }
 }
@@ -186,8 +195,17 @@ export default {
       font-size: 240px;
       color: var(--main);
       letter-spacing: 0;
-      text-align: center;
       text-align: right;
+      white-space: nowrap;
+      position: absolute;
+      top: 0;
+      right: 240px;;
+
+      &__overflow {
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+      }
     }
 
     &__link {
