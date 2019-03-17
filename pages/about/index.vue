@@ -56,8 +56,22 @@ export default {
   },
   methods: {
     mountAnimation: function(delay) {
-      TweenMax.from(this.$refs.main, 1, { y: '100vh', ease: Power1.easeOut })
-      TweenMax.staggerFrom(this.$refs.title, .7, { y: '100vh', ease: Power1.easeOut, delay: .3 })
+      if (this.$store.state.fromRoute == null || this.$store.state.fromRoute == '/') {
+        TweenMax.staggerFrom(this.$refs.chapter, 1, { y: '100vh', ease: Power1.easeOut })
+        TweenMax.staggerFrom(this.$refs.title, .7, { y: '100vh', ease: Power1.easeOut, delay: .3 })
+      }
+      else {
+        delay = .5
+        const $orange = document.createElement('div')
+        $orange.classList.add('tr-orange-leaving')
+        this.$refs.main.appendChild($orange)
+        const timeline = new TimelineMax()
+        timeline
+          .to($orange, .5, { y: '-100vh', ease: Power1.easeInOut }, 0)
+          .to($orange, 0, { opacity: '0' }, .5)
+          .staggerFrom(this.$refs.chapter, 1, { y: '100vh', ease: Power1.easeOut }, .1, delay)
+          .staggerFrom(this.$refs.title, .7, { y: '100vh', ease: Power1.easeOut }, .1, delay + .3)
+      }
     },
     setChapterHeight: function() {
       for (let i = 0; i < this.$refs.chapter.length; i++) {
@@ -74,11 +88,20 @@ export default {
   min-height: 100vh;
   overflow: hidden;
   background-color: var(--background);
+
+  @media (max-width: 800px) {
+    padding: 80px 5vw;
+  } 
 }
 
 .chapter {
   margin-bottom: 190px;
   margin-left: 110px;
+
+  @media (max-width: 800px) {
+    margin-left: 40px;
+    margin-bottom: 100px;
+  } 
 
   &:last-child {
     margin-bottom: 0;
@@ -92,6 +115,10 @@ export default {
     letter-spacing: 0;
     transform-origin: left bottom;
     transform: rotate(-90deg) translateX(-100%);
+
+    @media (max-width: 800px) {
+      font-size: 36px;
+    }
   }
 
   &__text {
@@ -107,6 +134,11 @@ export default {
       font-weight: bold;
       color: var(--main);
     }
+
+    @media (max-width: 800px) {
+      width: calc(100% - 5vw);
+      margin-left: 5vw;
+    }
   }
 
   .experiences {
@@ -117,6 +149,11 @@ export default {
     color: var(--bodyGrey);
     letter-spacing: 0;
     line-height: 32px;
+
+    @media (max-width: 800px) {
+      width: calc(100% - 5vw);
+      margin-left: 5vw;
+    }
 
     .experience {
       margin-bottom: 20px;
@@ -132,6 +169,10 @@ export default {
       &__role-date {
         margin-top: 10px;
       }
+
+      @media (max-width: 800px) {
+        margin-top: -20px;
+      }
     }
   }
 
@@ -145,12 +186,22 @@ export default {
     letter-spacing: 0;
     line-height: 32px;
 
+    @media (max-width: 800px) {
+      width: calc(100% - 5vw);
+      margin-left: 5vw;
+      display: block;
+    }
+
     .skill {
       margin-right: 80px;
 
       &__title {
         margin-bottom: 10px;
         font-weight: bold;
+      }
+
+      @media (max-width: 800px) {
+        margin-bottom: 30px;
       }
     }
   }

@@ -20,7 +20,7 @@
         <div class="header__infos__label" ref="label2">Role</div>
         <div class="header__infos__data" ref="data2">{{data.infos.role}}</div>
       </div>
-      <div v-if="data.infos.date" class="header__infos__info">
+      <div v-if="data.infos.date" class="header__infos__info header__infos__year">
         <div class="header__infos__label" ref="label3">Year</div>
         <div class="header__infos__data" ref="data3">{{data.infos.date}}</div>
       </div>
@@ -30,7 +30,7 @@
       </div>
     </div>
   </header>
-  <div class="project__content" v-for="layout in data.content" :key="layout.id">
+  <div class="project__content" v-for="layout in data.content" :key="layout.id" ref="content">
     <FullWidthText
       v-if="layout.type == 'full-width-text'"
       :data="layout"
@@ -47,6 +47,9 @@
       v-if="layout.type == 'full-width-title'"
       :data="layout"
     />
+  </div>
+  <div class="project__next" ref="next" @click="this.goToNextProject">
+    Next project
   </div>
 </div>
 </template>
@@ -90,13 +93,10 @@ export default {
     window.addEventListener('mousewheel', this.handleScroll)
   },
   beforeRouteLeave: function(to, from, next) {
-    if (to.name == 'about') {
-      const $orange = document.createElement('div')
-      $orange.classList.add('tr-orange-entering')
-      this.$refs.main.appendChild($orange)
-      TweenMax.to($orange, 1, { y: '-100vw', ease: Power1.easeInOut, onComplete: next });
-    }
-    else TweenMax.to(this.$refs.container, .2, { opacity: 0, onComplete: next })
+    const $orange = document.createElement('div')
+    $orange.classList.add('tr-orange-entering')
+    this.$refs.main.appendChild($orange)
+    TweenMax.to($orange, 1, { y: '-100vw', ease: Power1.easeInOut, onComplete: next }, 0)
   },
   methods: {
     mountAnimation(delay) {
@@ -117,6 +117,9 @@ export default {
       this.scroll += e.deltaY
       if (this.scroll <= 0) this.scroll = 0
       this.$refs.name.style.transform = `translateX(${this.scroll * (window.innerWidth / 500)}px)`
+    },
+    goToNextProject() {
+      TweenMax.to(this.$refs.content, .2, { opacity: 0, y: '-50px', ease: Power1.easeIn, onComplete: () => this.$router.push({ path: `/project/${this.data.next}`}) })
     }
   }
 }
@@ -126,6 +129,10 @@ export default {
 .container {
   margin: 0 240px;
   position: relative;
+
+  @media (max-width: 800px) {
+    margin: 0 5vw;
+  } 
 }
 
 .project {
@@ -155,9 +162,17 @@ export default {
       align-items: center;
       justify-content: space-between;
 
+      @media (max-width: 800px) {
+        padding: 0 2vw;
+      }
+
       &__info {
         display: block;
         margin: 0 15px;
+
+        @media (max-width: 800px) {
+          margin: 0 3vw;
+        }
       }
 
       &__label {
@@ -167,6 +182,10 @@ export default {
         letter-spacing: 0.78px;
         line-height: 18px;
         text-transform: uppercase;
+
+        @media (max-width: 800px) {
+          font-size: 14px;
+        }
       }
 
       &__data {
@@ -176,6 +195,16 @@ export default {
         color: var(--bodyWhite);
         letter-spacing: 0;
         line-height: 24px;
+
+        @media (max-width: 800px) {
+          font-size: 14px;
+        }
+      }
+
+      &__year {
+        @media (max-width: 800px) {
+          display: none;
+        }
       }
     }
 
@@ -184,6 +213,11 @@ export default {
       font-size: 16px;
       color: var(--bodyGrey);
       letter-spacing: 0.89px;
+
+      @media (max-width: 800px) {
+        margin-top: 40px;
+        margin-bottom: 60px;
+      }
     }
 
     &__type {
@@ -199,12 +233,21 @@ export default {
       white-space: nowrap;
       position: absolute;
       top: 0;
-      right: 240px;;
+      right: 240px;
+
+      @media (max-width: 800px) {
+        font-size: 60px;
+        right: 5vw;
+      }
 
       &__overflow {
         height: 300px;
         overflow: hidden;
         position: relative;
+
+        @media (max-width: 800px) {
+          height: 50px;
+        }
       }
     }
 
@@ -231,6 +274,24 @@ export default {
           z-index: 100;
         }
       }
+    }
+  }
+
+  &__next {
+    height: 180px;
+    padding: 0 140px;
+    background-color: var(--main);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'PTSerif', serif;
+    font-size: 30px;
+    color: var(--white);
+    cursor: pointer;
+
+    @media (max-width: 800px) {
+      padding: 0 5vw;
     }
   }
 }

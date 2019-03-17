@@ -32,8 +32,8 @@ export default {
   will-change: opacity, translate;
 
   @media (max-width: 800px) {
-    margin: 360px 0;
-    padding: 0 60px;
+    margin: 80px 0;
+    padding: 0 5vw;
   }
 }
 
@@ -47,6 +47,11 @@ h2 {
   color: var(--main);
   letter-spacing: 0;
   text-align: center;
+
+  @media (max-width: 800px) {
+    font-size: 30px;
+    line-height: 45px;
+  }
 }
 
 .dark-project p { color: var(--lighterGrey) }

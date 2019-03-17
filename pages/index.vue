@@ -50,10 +50,10 @@ export default {
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
 
-    this.initThumbnailsOffset()
+    if (!Modernizr.touchevents) this.initThumbnailsOffset()
 
     document.body.style.overflow = 'hidden'
-    window.addEventListener('mousewheel', this.handleScroll)
+    if (!Modernizr.touchevents) window.addEventListener('mousewheel', this.handleScroll)
   },
   beforeRouteLeave: function(to, from, next) {
     if (to.name == 'about') TweenMax.to(this.$refs.main, .2, { opacity: 0, scale: .95, onComplete: next })
@@ -65,13 +65,30 @@ export default {
   },
   methods: {
     mountAnimation(delay) {
-      const timeline = new TimelineMax()
-      timeline
-        .from(this.$refs.thumbnail[0], .5, { y: '80px', opacity: 0, ease: Power1.easeOut }, delay + 0)
-        .from(this.$refs.name[0], .5, { y: '120px', opacity: 0, ease: Power1.easeOut }, delay + .05)
-        // .from(this.$refs.numberOf, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .45)
-        // .from(this.$refs.see, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .5)
-        .from(this.$refs.background[0], 1, { opacity: 0, scale: .8, ease: Power1.easeOut }, delay + .2)
+      if (this.$store.state.fromRoute == null || this.$store.state.fromRoute == '/about') {
+        const timeline = new TimelineMax()
+        timeline
+          .from(this.$refs.thumbnail[0], .5, { y: '80px', opacity: 0, ease: Power1.easeOut }, delay + 0)
+          .from(this.$refs.name[0], .5, { y: '120px', opacity: 0, ease: Power1.easeOut }, delay + .05)
+          // .from(this.$refs.numberOf, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .45)
+          // .from(this.$refs.see, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .5)
+          .from(this.$refs.background[0], 1, { opacity: 0, scale: .8, ease: Power1.easeOut }, delay + .2)
+      }
+      else {
+        delay = 1
+        const $orange = document.createElement('div')
+        $orange.classList.add('tr-orange-leaving')
+        this.$refs.main.appendChild($orange)
+        const timeline = new TimelineMax()
+        timeline
+          .to($orange, .5, { y: '-100vh', ease: Power1.easeInOut })
+          .to($orange, 0, { opacity: '0' }, delay + 0)
+          .from(this.$refs.thumbnail[0], .5, { y: '80px', opacity: 0, ease: Power1.easeOut }, delay + 0)
+          .from(this.$refs.name[0], .5, { y: '120px', opacity: 0, ease: Power1.easeOut }, delay + .05)
+          // .from(this.$refs.numberOf, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .45)
+          // .from(this.$refs.see, .5, { y: '60px', opacity: 0, ease: Power1.easeOut }, delay + .5)
+          .from(this.$refs.background[0], 1, { opacity: 0, scale: .8, ease: Power1.easeOut }, delay + 1.2)
+      }
     },
     initThumbnailsOffset() {
       this.$refs.thumbnailsContainer.style.transform = 'translateX(0px)'
@@ -106,20 +123,30 @@ export default {
       this.$refs.background[i].style.transform = 'none'
       this.$refs.background[i].style.position = 'fixed'
       this.$refs.background[i].style.top = 'auto'
-      this.$refs.background[i].style.bottom = `${window.innerHeight - (rect.top + rect.height) - (rect.bottom - rect.height) + 30}px`
-      this.$refs.background[i].style.left = `${30 + i * window.innerWidth}px`
+      if (window.innerWidth <= 800) this.$refs.background[i].style.bottom = `${rect.bottom - rect.height - 60}px`
+      else this.$refs.background[i].style.bottom = `${window.innerHeight - (rect.top + rect.height) - (rect.bottom - rect.height) + 30}px`
+      if (window.innerWidth <= 800) this.$refs.background[i].style.left = `${rect.left}px`
+      else this.$refs.background[i].style.left = `${30 + i * window.innerWidth}px`
       this.$refs.background[i].style.width = `${rect.width}px`
       this.$refs.background[i].style.height = `${rect.height}px`
 
-      const timeline = new TimelineMax({ onComplete: () => this.$router.push({ path: `/project/${slug}`}) })
-      timeline
-        .to(this.$refs.name[i], .5, { y: '120px', opacity: 0, ease: Power1.easeIn }, 0)
-        .to(this.$refs.thumbnail[i], .5, { y: '80px', opacity: 0, ease: Power1.easeIn }, 0)
-        // .to(this.$refs.numberOf[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
-        // .to(this.$refs.see[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
-        // .to(this.$refs.see[i], .5, { y: '60px', opacity: 0, ease: Power1.easeIn }, 0)
-        .to(this.$refs.background[i], 1, { bottom: `-${rect.bottom - rect.height - 30}px`, ease: Power1.easeInOut }, 0)
-        .to(this.$refs.background[i], .8, { left: `${-rect.left + 30 + i * window.innerWidth}px`, width: '100vw', height: '180px',  ease: Power1.easeInOut }, .7)
+      if (window.innerWidth <= 800) {
+        const timeline = new TimelineMax({ onComplete: () => this.$router.push({ path: `/project/${slug}`}) })
+        timeline
+          .to(this.$refs.name[i], .5, { y: '120px', opacity: 0, ease: Power1.easeIn }, 0)
+          .to(this.$refs.thumbnail[i], .5, { y: '80px', opacity: 0, ease: Power1.easeIn }, 0)
+          .to(this.$refs.background[i], 1, { bottom: `0px`, ease: Power1.easeInOut }, 0)
+          .to(this.$refs.background[i], .8, { left: `0px`, width: '100vw', height: '180px',  ease: Power1.easeInOut }, .7)
+      }
+
+      else {
+        const timeline = new TimelineMax({ onComplete: () => this.$router.push({ path: `/project/${slug}`}) })
+        timeline
+          .to(this.$refs.name[i], .5, { y: '120px', opacity: 0, ease: Power1.easeIn }, 0)
+          .to(this.$refs.thumbnail[i], .5, { y: '80px', opacity: 0, ease: Power1.easeIn }, 0)
+          .to(this.$refs.background[i], 1, { bottom: `-${rect.bottom - rect.height - 30}px`, ease: Power1.easeInOut }, 0)
+          .to(this.$refs.background[i], .8, { left: `${-rect.left + 30 + i * window.innerWidth}px`, width: '100vw', height: '180px',  ease: Power1.easeInOut }, .7)
+      }
     },
     getPositionInArray(index) {
       const keys = Object.keys(this.data)
@@ -127,7 +154,7 @@ export default {
       for (const key of keys) { i++
         if (key == index) return i-1
       }
-    },
+    }
   }
 }
 </script>
@@ -143,6 +170,11 @@ body {
   height: 100vh;
   width: 100%;
   /* overflow: hidden; */
+
+  @media (max-width: 800px) {
+    width: 100vw;
+    overflow: scroll;
+  }
 }
 
 .project {
@@ -162,6 +194,10 @@ body {
   grid-template-columns: 6fr 1fr;
   grid-column-gap: 100px;
   position: relative;
+
+  @media (max-width: 800px) {
+    margin: 0 5vw;
+  }
 }
 
 .names {
@@ -171,6 +207,11 @@ body {
   z-index: 1;
   width: 100vw;
   display: flex;
+
+  @media (max-width: 800px) {
+    top: -40px;
+    left: 0;
+  }
 }
 
 .name {
@@ -180,6 +221,16 @@ body {
   text-align: right;
   color: var(--main);
   flex-shrink: 0;
+
+  @media (max-width: 800px) {
+    width: 90vw;
+    margin-right: 45vw;
+    font-size: 36px;
+
+    &:last-child {
+      margin-right: calc(5vw + 30px);
+    }
+  }
 }
 
 .thumbnails {
@@ -194,6 +245,15 @@ body {
   margin-right: 50vw;
   position: relative;
   flex-shrink: 0;
+
+  @media (max-width: 800px) {
+    width: calc(90vw - 30px);
+    height: 425px;
+
+    &:last-child {
+      margin-right: calc(5vw + 30px);
+    }
+  }
 
   img {
     width: 100%;
@@ -210,5 +270,10 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--main);
+
+  @media (max-width: 800px) {
+    top: 30px;
+    left: 30px;
+  }
 }
 </style>

@@ -37,6 +37,11 @@ export default {
   left: 120px;
   z-index: 99999;
   height: 100px;
+
+  @media (max-width: 800px) {
+    right: 5vw;
+    left: 5vw;
+  }
 }
 
 nav ul {

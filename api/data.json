@@ -19,49 +19,46 @@
     "streetco": {
       "slug": "streetco",
       "name": "Street Co.",
-      "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
+      "excerpt": "Street connection is a web documentary about the issue of culture in the suburbs. Paris, Miami, Moscow, Rio. Beyond the clichés of violence and crime, all these neighbourhoods have in common that they have created the contemporary cultural image of their city.",
       "thumbnail": {
         "url": "thumbnails/streetco.jpg",
-        "alt": "Ascora"
+        "alt": "Suburb in South America"
       },
       "cta": "see the project",
       "link": {
-        "url": "//ascora.com",
+        "url": "//street.connection.com",
         "label": "View website"
       },
       "infos": {
         "role": "Front end developer",
-        "client": "Purée Maison",
+        "client": "Project with friends",
         "date": "2018",
-        "type": "Website",
-        "techs": "Wordpress and native JS Router"
+        "type": "Webdocumentary",
+        "techs": "Vanilla Javascript & GSAP"
       },
       "content": [
         {
           "type": "full-width-text",
-          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+          "text": "Street connection is a web documentary about the issue of culture in the suburbs. Paris, LA, Moscow, Rio. Beyond the clichés of violence and crime, all these neighbourhoods have in common that they have created the contemporary cultural image of their city."
         },
         {
           "type": "simple-image",
           "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
-        },
-        {
-          "type": "full-width-image",
-          "image": {
-            "url": "ascora/ascora-1.jpg",
+            "url": "streetco/lamar.jpg",
             "alt": "Screenshot home"
           },
           "parallax": false
         },
         {
           "type": "full-width-title",
-          "title": "Bullshit animations are the key of awwwards."
+          "title": "Four days to make a webdocumentary."
+        },
+        {
+          "type": "full-width-text",
+          "text": "That was challenging. At school, we had to make a team of five and create a webdocumentary in 4 days. The team was made of 1 manager, 1 UI desdigner, 1 sound designer and 2 developers."
         }
-      ]
+      ],
+      "next": "ascora"
     },
     "maudrochel": {
       "slug": "maudrochel",
@@ -108,7 +105,8 @@
           "type": "full-width-title",
           "title": "Bullshit animations are the key of awwwards."
         }
-      ]
+      ],
+      "next": "ascora"
     },
     "lamontgolfiere": {
       "slug": "lamontgolfiere",
@@ -155,7 +153,8 @@
           "type": "full-width-title",
           "title": "Bullshit animations are the key of awwwards."
         }
-      ]
+      ],
+      "next": "ascora"
     },
     "ascora": {
       "slug": "ascora",
@@ -202,7 +201,8 @@
           "type": "full-width-title",
           "title": "Bullshit animations are the key of awwwards."
         }
-      ]
+      ],
+      "next": "ascora"
     }
   },
   "about": {

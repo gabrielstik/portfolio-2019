@@ -19,7 +19,7 @@ export default {
     Header
   },
   mounted: function() {
-    this.initCursor()
+    if (!Modernizr.touchevents) this.initCursor()
     this.loader()
   },
   methods: {
@@ -60,7 +60,7 @@ html {
   background-color: var(--main);
 }
 
-.cursor {
+.no-touchevents .cursor {
   position: fixed;
   top: 0;
   left: 0;
@@ -82,6 +82,7 @@ html {
   bottom: 0;
   z-index: 999999;
   background-color: var(--main);
+  transform-origin: top;
 }
 
 .tr-orange-leaving {
