@@ -79,6 +79,10 @@ html {
     font-family: 'PTSerif', serif;
     font-size: 180px;
     color: var(--background);
+
+    @media (max-width: 800px) {
+      font-size: 40px;
+    }
   }
 
   .job {
@@ -89,6 +93,10 @@ html {
     text-transform: uppercase;
     font-weight: normal;
     color: var(--background);
+
+    @media (max-width: 800px) {
+      font-size: 16px;
+    }
   }
 }
 
