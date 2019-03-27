@@ -169,7 +169,6 @@ body {
 #projects {
   height: 100vh;
   width: 100%;
-  /* overflow: hidden; */
 
   @media (max-width: 800px) {
     width: 100vw;
@@ -178,7 +177,6 @@ body {
 }
 
 .project {
-  width: 100vw;
   height: 100vh;
   flex-shrink: 0;
   display: flex;
@@ -186,6 +184,10 @@ body {
   justify-content: center;
   perspective: 800px;
   transform-style: preserve-3d;
+
+  @media (max-width: 800px) {
+    scroll-snap-type: x mandatory;
+  }
 }
 
 .container {
@@ -231,6 +233,10 @@ body {
       margin-right: calc(5vw + 30px);
     }
   }
+}
+
+.touchevents .name {
+  margin-right: 42vw;
 }
 
 .thumbnails {

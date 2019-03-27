@@ -9,15 +9,16 @@ module.exports = {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Portfolio 2019' },
       { name: 'msapplication-TileColor', content: '#2b5797', },
+      { name: 'description', content: "For 3 years I have been studying at HETIC digital know-how, learning both creation and development, as well as project management. I love to build relevant and user-centric products. Last year I was led to do a 3-month internship and I was delighted to be part of the developers team at Purée Maison, where I met brilliant people whose gave me the opportunity to work on awesome projects. I am also a freelance developer so I have the opportunity to work with differents clients along with my studies."},
       { name: 'theme-color', content: '#ffffff', }
     ],
     link: [
-      // { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png', },
-      // { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png', },
-      // { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png', },
-      // { rel: 'manifest', href: '/favicons/site.webmanifest', },
-      // { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#5bbad5', },
-      // { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png', },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png', },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicons/favicon-32x32.png', },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicons/favicon-16x16.png', },
+      { rel: 'manifest', href: '/favicons/site.webmanifest', },
+      { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#5bbad5', },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png', },
     ],
   },
   css: [

@@ -26,7 +26,7 @@
       },
       "cta": "see the project",
       "link": {
-        "url": "//street.connection.com",
+        "url": "//street.gabrielstik.fr",
         "label": "View website"
       },
       "infos": {
@@ -58,60 +58,71 @@
           "text": "That was challenging. At school, we had to make a team of five and create a webdocumentary in 4 days. The team was made of 1 manager, 1 UI desdigner, 1 sound designer and 2 developers."
         }
       ],
-      "next": "ascora"
+      "next": "maudrochel"
     },
     "maudrochel": {
       "slug": "maudrochel",
       "name": "Maud's folio",
-      "excerpt": "The first social club in Paris, Ascora opens its doors to you in a unique 2000 m² space where sport is associated with art, culture and relaxation.",
+      "excerpt": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want.",
       "thumbnail": {
         "url": "thumbnails/maudrochel.jpg",
         "alt": "Ascora"
       },
       "cta": "see the project",
       "link": {
-        "url": "//ascora.com",
+        "url": "//maudrchl.com",
         "label": "View website"
       },
       "infos": {
-        "role": "Front end developer",
-        "client": "Purée Maison",
-        "date": "2018",
-        "type": "Website",
-        "techs": "Wordpress and native JS Router"
+        "role": "Frontend & backend developer",
+        "client": "Maud Rochel",
+        "date": "2019",
+        "type": "Portfolio",
+        "techs": "Nuxt.js & Wordpress"
       },
       "content": [
         {
           "type": "full-width-text",
-          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+          "text": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want."
+        },
+        {
+          "type": "video",
+          "video": {
+            "url": "maudrochel/intro.mp4",
+            "alt": "Introducing Maud's folio"
+          }
+        },
+        {
+          "type": "full-width-title",
+          "title": "A portfolio need a backoffice."
+        },
+        {
+          "type": "title-text",
+          "title": "Nuxt & Wordpress",
+          "text": "Because having a backoffice on portfolio is essential, I chose to use Wordpress with Advanced Custom Field. As the objective is to quickly access the data to display them, I gave up the Wordpress Rest API."
         },
         {
           "type": "simple-image",
           "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
-        },
-        {
-          "type": "full-width-image",
-          "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
+            "url": "maudrochel/wp.jpg",
+            "alt": "Maud's backoffice"
+          }
         },
         {
           "type": "full-width-title",
-          "title": "Bullshit animations are the key of awwwards."
+          "title": "I made a Wordpress plugin especially for this folio."
+        },
+        {
+          "type": "full-width-text",
+          "text": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want."
         }
       ],
-      "next": "ascora"
+      "next": "la-montgolfiere"
     },
-    "lamontgolfiere": {
-      "slug": "lamontgolfiere",
+    "la-montgolfiere": {
+      "slug": "la-montgolfiere",
       "name": "La Montgolfière",
-      "excerpt": "Purée Maison<br>Wordpress and native Javascript.",
+      "excerpt": "The Montgolfière is a trendy sports hall in Paris. As an intern at Purée Maison, I developed this site with another intern.",
       "thumbnail": {
         "url": "thumbnails/la-montgolfiere.jpg",
         "alt": "Ascora"
@@ -122,109 +133,78 @@
         "label": "View website"
       },
       "infos": {
-        "role": "Front end developer",
-        "client": "Purée Maison",
+        "role": "Frontend & backend developer",
+        "client": "Maud Rochel",
         "date": "2018",
-        "type": "Website",
-        "techs": "Wordpress and vanilla Javascript"
+        "type": "Portfolio",
+        "techs": "GSAP & Wordpress"
       },
       "content": [
         {
           "type": "full-width-text",
-          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+          "text": "The Montgolfière is a trendy sports hall in Paris. As an intern at Purée Maison, I developed this site with another intern."
         },
         {
-          "type": "simple-image",
-          "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
-        },
-        {
-          "type": "full-width-image",
-          "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
+          "type": "video",
+          "video": {
+            "url": "la-montgolfiere/intro.mp4",
+            "alt": "Introducing La Montgolfière"
+          }
         },
         {
           "type": "full-width-title",
-          "title": "Bullshit animations are the key of awwwards."
-        }
-      ],
-      "next": "ascora"
-    },
-    "ascora": {
-      "slug": "ascora",
-      "name": "Ascora",
-      "excerpt": "Purée Maison<br>Wordpress and native Javascript.",
-      "thumbnail": {
-        "url": "thumbnails/ascora.jpg",
-        "alt": "Ascora"
-      },
-      "cta": "see the project",
-      "link": {
-        "url": "//ascora.com",
-        "label": "View website"
-      },
-      "infos": {
-        "role": "Front end developer",
-        "client": "Purée Maison",
-        "date": "2018",
-        "type": "Website",
-        "techs": "Wordpress and vanilla Javascript"
-      },
-      "content": [
+          "title": "Animations, animations & animations"
+        },
+        {
+          "type": "title-text",
+          "title": "GSAP!",
+          "text": "We used GSAP for all the animations. Timelines are extremely useful to coordinate content appearances, and manage the timing and easing of each animation."
+        },
         {
           "type": "full-width-text",
-          "text": "ASCORA se positionne comme une alternative à taille humaine aux grands cabinets internationaux, capable d’offrir à la fois un conseil personnalisé, les techniques d’assurances les plus élaborées, l’accès à l’ensemble du marché, une gestion de pointe."
+          "text": "Of course this website has a backoffice : it's a Wordpress with Advanced Custom Field. The client needed to have the whole website editable. So we created a lot of compenent that he can mangage with ACF's flexible content field."
+        },
+        {
+          "type": "full-width-title",
+          "title": "La Montgolfière is award winner."
         },
         {
           "type": "simple-image",
           "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
-        },
-        {
-          "type": "full-width-image",
-          "image": {
-            "url": "ascora/ascora-1.jpg",
-            "alt": "Screenshot home"
-          },
-          "parallax": false
-        },
-        {
-          "type": "full-width-title",
-          "title": "Bullshit animations are the key of awwwards."
+            "url": "la-montgolfiere/award.jpg",
+            "alt": "La Montgofière's CSSDA"
+          }
         }
       ],
-      "next": "ascora"
+      "next": "streetco"
     }
   },
   "about": {
     "chapters": [
       {
         "title": "Hello",
-        "text": "For 3 years I have been studying at HETIC digital know-how, both creation and development, as well as project management.<br>Today, I am a frontend developer.<br>I am also a freelance developer and I had the chance to work for the Parisian agency Purée Maison or Startupflow."
+        "text": "For 3 years I have been studying at HETIC digital know-how, learning both creation and development, as well as project management. I love to build relevant and user-centric products.<br><br>Last year I was led to do a 3-month internship and I was delighted to be part of the developers team at Purée Maison, where I met brilliant people whose gave me the opportunity to work on awesome projects.<br><br>I am also a freelance developer so I have the opportunity to work with differents clients along with my studies."
       },
       {
         "title": "Experiences",
         "experiences": [
           {
-            "date": "Present",
-            "name": "Freelance developer",
-            "role": "",
-            "place": "Worldwide"
+            "date": "2018",
+            "name": "Freelancer for Startupflow.io",
+            "role": "Frontend & backend developer",
+            "place": "in Paris, France"
           },
           {
-            "date": "July to September 2018",
+            "date": "Summer 2018",
             "name": "Intern at Purée Maison",
-            "role": "Frontend developer",
+            "role": "Frontend & backend developer",
             "place": "in Paris, France"
+          },
+          {
+            "date": "at school",
+            "name": "A lot of awesome projects",
+            "role": "From iOS apps to Customer experience studies",
+            "place": ""
           }
         ]
       },
@@ -248,6 +228,31 @@
               "Product design",
               "Project leading"
             ]
+          }
+        ]
+      },
+      {
+        "title": "Reach me",
+        "socials": [
+          {
+            "name": "Email",
+            "link": "mailto:gabriel.stik@gmail.com"
+          },
+          {
+            "name": "Github",
+            "link": "https://github.com/gabrielstik/"
+          },
+          {
+            "name": "Linkedin",
+            "link": "https://www.linkedin.com/in/gabrielstik"
+          },
+          {
+            "name": "Twitter",
+            "link": "https://twitter.com/Gabriel_Stik"
+          },
+          {
+            "name": "Instagram",
+            "link": "https://www.instagram.com/gabriel.stik/"
           }
         ]
       }

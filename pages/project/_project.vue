@@ -47,9 +47,17 @@
       v-if="layout.type == 'full-width-title'"
       :data="layout"
     />
+    <Video
+      v-if="layout.type == 'video'"
+      :data="layout"
+    />
+    <TitleText
+      v-if="layout.type == 'title-text'"
+      :data="layout"
+    />
   </div>
   <div class="project__next" ref="next" @click="this.goToNextProject">
-    Next project
+    <span ref="nextText">Next project</span>
   </div>
 </div>
 </template>
@@ -62,6 +70,8 @@ import FullWidthText from '~/components/project/FullWidthText'
 import FullWidthImage from '~/components/project/FullWidthImage'
 import FullWidthTitle from '~/components/project/FullWidthTitle'
 import SimpleImage from '~/components/project/SimpleImage'
+import Video from '~/components/project/Video'
+import TitleText from '~/components/project/TitleText'
 
 export default {
   name: 'Projects',
@@ -72,7 +82,9 @@ export default {
     FullWidthText,
     FullWidthImage,
     FullWidthTitle,
-    SimpleImage
+    SimpleImage,
+    Video,
+    TitleText
   },
   data() {
     return {
@@ -86,7 +98,7 @@ export default {
     this.data = api.projects[projectName]
   },
   mounted: function() {
-    if (this.$store.state.fromRoute == null) this.mountAnimation(1.5)
+    if (this.$store.state.fromRoute == null) this.mountAnimation(.6)
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
 
@@ -96,7 +108,7 @@ export default {
     const $orange = document.createElement('div')
     $orange.classList.add('tr-orange-entering')
     this.$refs.main.appendChild($orange)
-    TweenMax.to($orange, 1, { y: '-100vw', ease: Power1.easeInOut, onComplete: next }, 0)
+    TweenMax.to($orange, 1, { y: '-100vh', ease: Power1.easeInOut, onComplete: next }, 0)
   },
   methods: {
     mountAnimation(delay) {
@@ -119,7 +131,10 @@ export default {
       this.$refs.name.style.transform = `translateX(${this.scroll * (window.innerWidth / 500)}px)`
     },
     goToNextProject() {
-      TweenMax.to(this.$refs.content, .2, { opacity: 0, y: '-50px', ease: Power1.easeIn, onComplete: () => this.$router.push({ path: `/project/${this.data.next}`}) })
+      const timeline = new TimelineMax({ onComplete: () => this.$router.push({ path: `/project/${this.data.next}` }) })
+      timeline
+        .to(this.$refs.nextText, .2, { opacity: 0, y: '-50px', ease: Power1.easeIn }, 0)
+        .to(this.$refs.content, .2, { opacity: 0, y: '-50px', ease: Power1.easeIn }, 0)
     }
   }
 }

@@ -23,6 +23,9 @@
         </ul>
       </li>
     </ul>
+    <ul v-if="chapter.socials" class="reach">
+      <li class="social" v-for="social of chapter.socials" :key="social.id"><a :href="social.link" :title="`Reach me on ${social.name}`" target="_blank">{{social.name}} <div class="reach__link__image"></div></a></li>
+    </ul>
   </section>
 </div>
 </template>
@@ -45,7 +48,7 @@ export default {
     this.data = api.about
   },
   mounted: function() {
-    if (this.$store.state.fromRoute == null) this.mountAnimation(.7)
+    if (this.$store.state.fromRoute == null) this.mountAnimation(.6)
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
 
@@ -57,8 +60,8 @@ export default {
   methods: {
     mountAnimation: function(delay) {
       if (this.$store.state.fromRoute == null || this.$store.state.fromRoute == '/') {
-        TweenMax.staggerFrom(this.$refs.chapter, 1, { y: '100vh', ease: Power1.easeOut })
-        TweenMax.staggerFrom(this.$refs.title, .7, { y: '100vh', ease: Power1.easeOut, delay: .3 })
+        TweenMax.staggerFrom(this.$refs.chapter, 1, { y: '100vh', ease: Power1.easeOut, delay: delay })
+        TweenMax.staggerFrom(this.$refs.title, .7, { y: '100vh', ease: Power1.easeOut, delay: delay + .3 })
       }
       else {
         delay = .5
@@ -202,6 +205,52 @@ export default {
 
       @media (max-width: 800px) {
         margin-bottom: 30px;
+      }
+    }
+  }
+
+  .reach {
+    margin-bottom: 200px;
+    
+    a {
+      display: block;
+      margin-top: 20px;
+      margin-left: 100px;
+      width: 60%;
+      font-family: 'Graphik', sans-serif;
+      font-size: 24px;
+      color: var(--bodyGrey);
+      letter-spacing: 0;
+      line-height: 32px;
+      transition: color .2s ease-in-out;
+
+      .reach__link__image {
+        margin-left: 7px;
+        display: inline-block;
+        background-image: url(~assets/icons/arrows/arrow-link.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 16px;
+        transition: transform .1s ease-in-out;
+      }
+
+      &:hover {
+        color: var(--main);
+
+        .reach__link__image {
+          transform: translateX(10px);
+        }
+      }
+
+      strong {
+        font-weight: bold;
+        color: var(--main);
+      }
+
+      @media (max-width: 800px) {
+        width: calc(100% - 5vw);
+        margin-left: 5vw;
       }
     }
   }

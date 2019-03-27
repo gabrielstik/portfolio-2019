@@ -44,6 +44,7 @@ export default {
 h2 {
   font-family: 'PTSerif', serif;
   font-size: 60px;
+  line-height: 80px;
   color: var(--main);
   letter-spacing: 0;
   text-align: center;
