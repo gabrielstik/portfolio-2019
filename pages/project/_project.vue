@@ -12,20 +12,20 @@
       </div>
     </div>
     <div class="header__infos">
-      <div v-if="data.infos.client" class="header__infos__info">
-        <div class="header__infos__label" ref="label1">Client</div>
+      <div class="header__infos__info">
+        <div class="header__infos__label" ref="label1"><span v-if="data.infos.client">Client</span></div>
         <div class="header__infos__data" ref="data1">{{data.infos.client}}</div>
       </div>
-      <div v-if="data.infos.role" class="header__infos__info">
-        <div class="header__infos__label" ref="label2">Role</div>
+      <div class="header__infos__info">
+        <div class="header__infos__label" ref="label2"><span v-if="data.infos.role">Role</span></div>
         <div class="header__infos__data" ref="data2">{{data.infos.role}}</div>
       </div>
-      <div v-if="data.infos.date" class="header__infos__info header__infos__year">
-        <div class="header__infos__label" ref="label3">Year</div>
+      <div class="header__infos__info header__infos__year">
+        <div class="header__infos__label" ref="label3"><span v-if="data.infos.date">Year</span></div>
         <div class="header__infos__data" ref="data3">{{data.infos.date}}</div>
       </div>
-      <div v-if="data.infos.techs" class="header__infos__info">
-        <div class="header__infos__label" ref="label4">Tech</div>
+      <div v-if="data.infos" class="header__infos__info">
+        <div class="header__infos__label" ref="label4"><span v-if="data.infos.techs">Tech</span></div>
         <div class="header__infos__data" ref="data4">{{data.infos.techs}}</div>
       </div>
     </div>
@@ -102,7 +102,7 @@ export default {
     else this.mountAnimation(0)
     this.$store.commit('updateRoute', this.$route.path)
 
-    window.addEventListener('mousewheel', this.handleScroll)
+    window.addEventListener('wheel', this.handleScroll)
   },
   beforeRouteLeave: function(to, from, next) {
     const $orange = document.createElement('div')
@@ -240,7 +240,7 @@ export default {
     }
 
     &__title {
-      font-family: 'PTSerif', serif;
+      font-family: 'Prata', serif;
       font-size: 240px;
       color: var(--main);
       letter-spacing: 0;
@@ -300,7 +300,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'PTSerif', serif;
+    font-family: 'Prata', serif;
     font-size: 30px;
     color: var(--white);
     cursor: pointer;

@@ -112,7 +112,7 @@ export default {
 
   &__title {
     display: inline-block;
-    font-family: 'PTSerif', serif;
+    font-family: 'Prata', serif;
     font-size: 120px;
     color: var(--main);
     letter-spacing: 0;

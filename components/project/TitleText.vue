@@ -42,7 +42,7 @@ export default {
 h2 {
   width: 45vw;
   margin-right: 10vw;
-  font-family: 'PTSerif', serif;
+  font-family: 'Prata', serif;
   font-size: 50px;
   color: var(--main);
   letter-spacing: -0.83px;

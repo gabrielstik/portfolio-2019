@@ -53,7 +53,7 @@ export default {
     if (!Modernizr.touchevents) this.initThumbnailsOffset()
 
     document.body.style.overflow = 'hidden'
-    if (!Modernizr.touchevents) window.addEventListener('mousewheel', this.handleScroll)
+    if (!Modernizr.touchevents) window.addEventListener('wheel', this.handleScroll)
   },
   beforeRouteLeave: function(to, from, next) {
     if (to.name == 'about') TweenMax.to(this.$refs.main, .2, { opacity: 0, scale: .95, onComplete: next })
@@ -61,7 +61,7 @@ export default {
   },
   beforeDestroy() {
     document.body.style.overflow = 'auto'
-    window.removeEventListener('mousewheel', this.handleScroll)
+    window.removeEventListener('wheel', this.handleScroll)
   },
   methods: {
     mountAnimation(delay) {
@@ -218,7 +218,7 @@ body {
 
 .name {
   width: 100%;
-  font-family: 'PTSerif', serif;
+  font-family: 'Prata', serif;
   font-size: 120px;
   text-align: right;
   color: var(--main);

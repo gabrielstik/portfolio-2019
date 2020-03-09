@@ -19,6 +19,7 @@ module.exports = {
       { rel: 'manifest', href: '/favicons/site.webmanifest', },
       { rel: 'mask-icon', href: '/favicons/safari-pinned-tab.svg', color: '#5bbad5', },
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/favicons/apple-touch-icon.png', },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Prata&display=swap', },
     ],
   },
   css: [
@@ -59,16 +60,6 @@ module.exports = {
     ** Run ESLint on save
     */
     vendor: ['axios'],
-    extend (config, { isDev, isClient }) {
-      if (isDev && isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
   },
   plugins: [
     { src: '~/plugins/polyfill/intersection-observer.js', ssr: false },

@@ -16,6 +16,216 @@
     "text": "I am Gabriel Stik, french student in 3rd grade at HETIC where I learnt the basics of the internet. I’m looking for an internship anywhere in the world. Feel free to contact me."
   },
   "projects": {
+    "the-charles-nyc": {
+      "slug": "the-charles-nyc",
+      "name": "The Charles NYC",
+      "excerpt": "I had the opportunity to work at The Charles, which is a digital agency based in Manhattan, New York. I worked on many websites' developement, internal tools, and more using recent technologies.",
+      "thumbnail": {
+        "url": "thumbnails/newyork.jpg",
+        "alt": "Suburb in South America"
+      },
+      "cta": "see the project",
+      "link": {
+        "url": "//street.gabrielstik.fr",
+        "label": "View website"
+      },
+      "infos": {
+        "role": "Developer intern",
+        "date": "June 2019 to December 2019",
+        "type": "Internship"
+      },
+      "content": [
+        {
+          "type": "full-width-text",
+          "text": "I had the opportunity to work at The Charles, which is a digital agency based in Manhattan, New York. I worked on many websites' developement, internal tools, and more using recent technologies."
+        },
+        {
+          "type": "full-width-image",
+          "image": {
+            "url": "thecharles/tcg4.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-title",
+          "title": "Working on The Charles' showcase."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "thecharles/tcg1.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-text",
+          "text": "The Charles had its website redesigned and I spent a lot of time on it. I mainly worked on improving animations & performances."
+        },
+        {
+          "type": "title-text",
+          "title": "Gatsby is the key.",
+          "text": "The website needed to be able to show all the content of The Charles. Indeed a lot of projects means a lot of assets. And a lot of assets need strong performances. That's why I chosed to make it run with Gatsby and Wordpress hooks."
+        },
+        {
+          "type": "full-width-title",
+          "title": "Understand user paths to smartly websites."
+        },
+        {
+          "type": "full-width-text",
+          "text": "As long as I worked on The Charles' productions I figured out how important it is to understand how the user navigates through the website. Thus it's important during the development process to take into consideration the way the websites load according to user paths."
+        },
+        {
+          "type": "full-width-title",
+          "title": "Guide the user through the shopping experience."
+        },
+        {
+          "type": "full-width-image",
+          "image": {
+            "url": "thecharles/tcg2.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-text",
+          "text": "In order to make the user experience better. We built a assessment form on the website to help the user find the product they need."
+        },
+        {
+          "type": "title-text",
+          "title": "React.js embed.",
+          "text": "That assessment was built with React in order to have a fluid navigation through it. That allowed to keep data easily while the form is being filled out and to offer the customer the right products at the end."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "thecharles/tcg3.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        },
+        {
+          "type": "full-width-title",
+          "title": "There is more..."
+        },
+        {
+          "type": "full-width-text",
+          "text": "But I can't tell everything on internet. Reach me out to know more!"
+        },
+        {
+          "type": "full-width-image",
+          "image": {
+            "url": "thecharles/nyc.jpg",
+            "alt": "Screenshot home"
+          },
+          "parallax": false
+        }
+      ],
+      "next": "maud-rochel"
+    },
+    "maud-rochel": {
+      "slug": "maud-rochel",
+      "name": "Maud's folio",
+      "excerpt": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want.",
+      "thumbnail": {
+        "url": "thumbnails/maudrochel.jpg",
+        "alt": "Ascora"
+      },
+      "cta": "see the project",
+      "link": {
+        "url": "//maudrchl.com",
+        "label": "View website"
+      },
+      "infos": {
+        "role": "Frontend & backend developer",
+        "client": "Maud Rochel",
+        "date": "2019",
+        "type": "Portfolio",
+        "techs": "Nuxt.js & Wordpress"
+      },
+      "content": [
+        {
+          "type": "full-width-text",
+          "text": "I developed the portfolio of my friend and designer: Maud Rochel. I wanted to build something she can edit easily when she want."
+        },
+        {
+          "type": "full-width-title",
+          "title": "Have smooth transitions."
+        },
+        {
+          "type": "video",
+          "video": {
+            "url": "maudrochel/intro.mp4",
+            "alt": "Introducing Maud's folio"
+          }
+        },
+        {
+          "type": "full-width-title",
+          "title": "A portfolio needs a backoffice."
+        },
+        {
+          "type": "title-text",
+          "title": "Nuxt & Wordpress",
+          "text": "Because having a backoffice on portfolio is essential, I chose to use Wordpress with Advanced Custom Field. As the objective is to quickly access the data to display them, I gave up to use directly the Wordpress Rest API."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "maudrochel/wp.jpg",
+            "alt": "Maud's backoffice"
+          }
+        },
+        {
+          "type": "full-width-title",
+          "title": "I made a Wordpress plugin especially for this folio."
+        },
+        {
+          "type": "full-width-text",
+          "text": "Maud needed to have the ability to update her portfolio instantly with Wordpress. So I decided to create a plugin that writes a json file each time Maud's saves or creates a post on Wordpress. The frontend works by pulling that json. Moreover, we can version the website by keeping those json data files and have static version of it."
+        }
+      ],
+      "next": "startupflow"
+    },
+    "startupflow": {
+      "slug": "startupflow",
+      "name": "Startupflow",
+      "excerpt": "My friend Maud Rochel and I worked with Startupflow in order to create their website.",
+      "thumbnail": {
+        "url": "thumbnails/startupflow.jpg",
+        "alt": "Suburb in South America"
+      },
+      "cta": "see the project",
+      "link": {
+        "url": "//startupflow.io",
+        "label": "View website"
+      },
+      "infos": {
+        "role": "Developer",
+        "client": "Startupflow",
+        "date": "2020",
+        "type": "Business website",
+        "techs": "Wordpress & Nuxt.js"
+      },
+      "content": [
+        {
+          "type": "full-width-text",
+          "text": "In 2018 I already worked on the first version of Startupflow.io. In 2020 the startup wanted a new version of their website. With my friend & designer Maud Rochel we worked on it in order to make it in line with the company's branding and to use the most suitable technologies."
+        },
+        {
+          "type": "full-width-title",
+          "title": "Working hand in hand with the designer."
+        },
+        {
+          "type": "simple-image",
+          "image": {
+            "url": "startupflow/startupflow.jpg",
+            "alt": "Startupflow"
+          }
+        }
+      ],
+      "next": "streetco"
+    },
     "streetco": {
       "slug": "streetco",
       "name": "Street Co.",
@@ -56,65 +266,6 @@
         {
           "type": "full-width-text",
           "text": "That was challenging. At school, we had to make a team of five and create a webdocumentary in 4 days. The team was made of 1 manager, 1 UI desdigner, 1 sound designer and 2 developers."
-        }
-      ],
-      "next": "maudrochel"
-    },
-    "maudrochel": {
-      "slug": "maudrochel",
-      "name": "Maud's folio",
-      "excerpt": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want.",
-      "thumbnail": {
-        "url": "thumbnails/maudrochel.jpg",
-        "alt": "Ascora"
-      },
-      "cta": "see the project",
-      "link": {
-        "url": "//maudrchl.com",
-        "label": "View website"
-      },
-      "infos": {
-        "role": "Frontend & backend developer",
-        "client": "Maud Rochel",
-        "date": "2019",
-        "type": "Portfolio",
-        "techs": "Nuxt.js & Wordpress"
-      },
-      "content": [
-        {
-          "type": "full-width-text",
-          "text": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want."
-        },
-        {
-          "type": "video",
-          "video": {
-            "url": "maudrochel/intro.mp4",
-            "alt": "Introducing Maud's folio"
-          }
-        },
-        {
-          "type": "full-width-title",
-          "title": "A portfolio need a backoffice."
-        },
-        {
-          "type": "title-text",
-          "title": "Nuxt & Wordpress",
-          "text": "Because having a backoffice on portfolio is essential, I chose to use Wordpress with Advanced Custom Field. As the objective is to quickly access the data to display them, I gave up the Wordpress Rest API."
-        },
-        {
-          "type": "simple-image",
-          "image": {
-            "url": "maudrochel/wp.jpg",
-            "alt": "Maud's backoffice"
-          }
-        },
-        {
-          "type": "full-width-title",
-          "title": "I made a Wordpress plugin especially for this folio."
-        },
-        {
-          "type": "full-width-text",
-          "text": "I developed the portfolio of my favorite designer and friend: Maud Rochel. I wanted to build something she can edit easily when she want."
         }
       ],
       "next": "la-montgolfiere"
@@ -176,7 +327,7 @@
           }
         }
       ],
-      "next": "streetco"
+      "next": "the-charles-nyc"
     }
   },
   "about": {

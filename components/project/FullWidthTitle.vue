@@ -42,7 +42,7 @@ export default {
 }
 
 h2 {
-  font-family: 'PTSerif', serif;
+  font-family: 'Prata', serif;
   font-size: 60px;
   line-height: 80px;
   color: var(--main);

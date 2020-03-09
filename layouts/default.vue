@@ -76,7 +76,7 @@ html {
 
   .name {
     margin-left: 10vw;
-    font-family: 'PTSerif', serif;
+    font-family: 'Prata', serif;
     font-size: 180px;
     color: var(--background);
 
