@@ -17,7 +17,7 @@
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/component-cache": "^1.1.4",
     "axios": "^0.18.0",
-    "gsap": "^2.0.2",
+    "gsap": "^3.6.0",
     "intersection-observer": "^0.5.1",
     "lazy-load": "^0.0.2",
     "node-sass": "^4.11.0",
